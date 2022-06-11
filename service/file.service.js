@@ -6,7 +6,7 @@ module.exports = {
         try {
             const data = await fs.readFile(path.join(process.cwd(), 'dataBase', 'users.json'))
             return data.toString()
-                ? JSON.parse(data.toString())
+                ? JSON.parse(data.toString()).sort((a,b)=>a.id-b.id)
                 : []
         } catch (e) {
             console.log(e)
